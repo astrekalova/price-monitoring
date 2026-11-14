@@ -34,7 +34,7 @@ class StatisticsTest {
     public void testAddStatisticsWithOldTicks() {
         long now = System.currentTimeMillis();
         Timestamp timestamp = new Timestamp(System.currentTimeMillis());
-        long outsideTimeWindow = timestamp.toInstant().minusMillis(windowSize).toEpochMilli();
+        long outsideTimeWindow = timestamp.toInstant().minusMillis(windowSize + 1).toEpochMilli();
 
         statistics = new Statistics(windowSize);
         statistics.add(now, new Tick("A", 100, now));
